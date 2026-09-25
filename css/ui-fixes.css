@@ -472,3 +472,92 @@ select {
     transition: none;
   }
 }
+
+/* Settings management list styling */
+.settings-management-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.settings-item .meta {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.settings-item .meta strong {
+  overflow-wrap: anywhere;
+}
+
+.settings-item .meta small {
+  color: var(--muted);
+}
+
+.quick-action-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.secondary-btn,
+.danger-btn {
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  font-weight: 700;
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--text);
+}
+
+.danger-btn {
+  color: var(--red);
+}
+
+.switch-control {
+  position: relative;
+  display: inline-flex;
+  width: 46px;
+  height: 26px;
+  flex: 0 0 auto;
+}
+
+.switch-control input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-control .slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+  border: 1px solid var(--line);
+  transition: 0.18s ease;
+  cursor: pointer;
+}
+
+.switch-control .slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: 0.18s ease;
+}
+
+.switch-control input:checked + .slider {
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  border-color: transparent;
+}
+
+.switch-control input:checked + .slider::before {
+  transform: translateX(20px);
+}
