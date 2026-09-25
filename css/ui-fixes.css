@@ -316,6 +316,33 @@ select {
   background: linear-gradient(90deg, var(--yellow), var(--red));
 }
 
+/* Keep only the sync status and button anchored to the top-right of the app bar. */
+.topbar {
+  position: relative;
+}
+
+.topbar-actions {
+  position: relative;
+  min-width: 260px;
+  min-height: 44px;
+}
+
+.topbar-actions #syncStatus,
+.topbar-actions #syncButton {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.topbar-actions #syncStatus {
+  right: 90px;
+}
+
+.topbar-actions #syncButton {
+  right: 0;
+}
+
 @media (max-width: 760px) {
   .main-nav {
     display: flex;
@@ -334,6 +361,17 @@ select {
 
   .month-picker select {
     flex: 1;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    min-width: 0;
+    padding-right: 0;
+  }
+
+  .topbar-actions #syncStatus,
+  .topbar-actions #syncButton {
+    top: 12px;
   }
 }
 
@@ -358,12 +396,6 @@ select {
 
   .transaction-tabs {
     grid-template-columns: 1fr;
-  }
-
-  .budget-bar-card .bar-head {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 2px;
   }
 }
 
