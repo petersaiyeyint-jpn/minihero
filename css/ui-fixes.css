@@ -399,6 +399,74 @@ select {
   }
 }
 
+/* Keep Sync status and Sync button at the top-right of the app header
+   without changing the existing theme or other UI styles. */
+
+.topbar {
+  position: relative;
+}
+
+.topbar-actions {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  transform: translateY(-50%);
+}
+
+/* Prevent the existing month picker from moving with the sync controls. */
+.topbar-actions .month-picker {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+/* Keep the sync controls together on the right. */
+.topbar-actions #syncStatus,
+.topbar-actions #syncButton {
+  position: static;
+  transform: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    min-height: 142px;
+  }
+
+  .topbar-actions {
+    top: 16px;
+    right: 16px;
+    transform: none;
+  }
+
+  .topbar-actions .month-picker {
+    top: 58px;
+    right: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    min-height: 178px;
+  }
+
+  .topbar-actions {
+    right: 12px;
+    gap: 8px;
+  }
+
+  .topbar-actions .month-picker {
+    top: 58px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .floating-add-transaction {
     transition: none;
