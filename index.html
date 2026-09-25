@@ -17,7 +17,7 @@
 <body class="dark">
   <div class="app-layout">
     <aside class="sidebar" id="sidebar" aria-label="MoneyFlow navigation" aria-hidden="true">
-      <div class="brand"><span class="brand-mark">M</span><div><strong>MoneyFlow</strong><small>Personal finance</small></div></div>
+      <div class="brand"><img class="brand-mark" src="icons/icon-192.png" alt="MoneyFlow logo"><div><strong>MoneyFlow</strong><small>Personal finance</small></div></div>
       <nav class="main-nav" aria-label="Main navigation">
         <button class="nav-item active" type="button" data-page="home"><span aria-hidden="true">⌂</span><span>Home</span></button>
         <button class="nav-item" type="button" data-page="dashboard"><span aria-hidden="true">◔</span><span>Dashboard</span></button>
@@ -48,31 +48,31 @@
           <div class="hero panel"><div><small id="greetLabel">GOOD MORNING</small><h1 id="greetTitle">Your money story</h1><p id="focusMessage">Everything is on track today.</p></div></div>
           <div id="quickActions" class="quick-actions" aria-label="Quick actions"></div>
           <div id="cards" class="cards"></div>
-          <div class="panel"><div class="section-head"><h3>Daily budget</h3></div><div class="daily-budget"><strong id="dailyBudgetValue">0 MMK</strong><small id="dailyBudgetMeta">0 days remaining · Net 0 MMK</small></div></div>
+          <div class="panel"><div class="section-head"><h3>Daily budget</h3></div><div class="daily-budget"><strong id="dailyBudgetValue">0 MMK</strong><small id="dailyBudgetMeta">0 days remaining</small></div></div>
           <div class="panel"><div class="section-head"><h3>Budget alerts</h3></div><div id="budgetAlerts" aria-live="polite"></div></div>
         </section>
 
         <section id="dashboard" class="page">
           <div class="section-title"><small>Insights</small><h1>Budget &amp; loan overview</h1><p>Net cash flow and budget tracking</p></div>
-          <div class="cards"><article class="stat-card panel"><small>Cash flow</small><strong id="cashflowValue">0 MMK</strong></article><article class="stat-card panel"><small>Budget used</small><strong id="budgetUsedValue">0 MMK</strong></article><article class="stat-card panel"><small>Loan balance</small><strong id="loanBalanceValue">0 MMK</strong></article></div>
+          <div class="cards"><article class="stat-card panel"><small>Cash flow</small><strong id="cashflowValue">0 MMK</strong></article><article class="stat-card panel"><small>Budget used</small><strong id="budgetUsedValue">0%</strong></article><article class="stat-card panel"><small>Loan balance</small><strong id="loanBalanceValue">0 MMK</strong></article><article class="stat-card panel"><small>Monthly income</small><strong id="monthlyIncomeValue">0 MMK</strong></article></div>
           <div class="panel"><div class="section-head"><h3>Budget vs spending</h3></div><div id="budgetVsSpendingChart" class="bar-chart"></div></div>
           <div class="panel"><div class="section-head"><h3>Loan summary</h3></div><div id="loanList" class="settings-list"></div></div>
         </section>
 
         <section id="transactions" class="page">
           <div class="section-title"><small>History</small><h1>Transactions</h1></div>
-          <div class="panel"><div class="section-head"><h3>Activity</h3><button type="button" class="danger-btn" id="clearAllTransactions">Clear all</button></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Category</th><th>Amount</th><th>Note</th><th>Action</th></tr></thead><tbody id="transactionTable"></tbody></table></div></div>
+          <div class="panel"><div class="section-head"><h3>Activity</h3><button type="button" class="danger-btn" id="clearAllTransactions">Clear all</button></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Type</th><th>Amount</th><th>Actions</th></tr></thead><tbody id="transactionsBody"></tbody></table></div></div>
         </section>
 
         <section id="settings" class="page">
           <div class="section-title"><small>Customize</small><h1>Settings</h1></div>
           <div class="settings-grid">
-            <div class="panel"><div class="section-head"><h3>Preferences</h3></div><div class="settings-list"><label class="toggle-row"><span>Dark mode</span><input id="darkModeToggle" type="checkbox" checked></label></div></div>
+            <div class="panel"><div class="section-head"><h3>Preferences</h3></div><div class="settings-list"><label class="toggle-row"><span>Dark mode</span><input id="darkModeToggle" type="checkbox"></label><label class="toggle-row"><span>Compact cards</span><input id="compactModeToggle" type="checkbox"></label></div></div>
             <div class="panel"><div class="section-head"><h3>Quick actions</h3></div><div id="quickActionSettings" class="settings-list"></div></div>
           </div>
           <div class="settings-grid" style="margin-top:18px">
-            <div class="panel"><div class="section-head"><h3>Budget management</h3></div><form id="budgetForm" class="stack-form"><label><span>Category</span><select id="budgetCategory" name="budgetCategory"></select></label><label><span>Month</span><input name="budgetMonth" type="month" required></label><label><span>Amount</span><input name="budgetAmount" type="number" min="1" step="1" required></label><button type="submit" class="primary-btn">Save budget</button></form></div>
-            <div class="panel"><div class="section-head"><h3>Categories</h3></div><form id="categoryForm" class="stack-form"><label><span>Name</span><input name="categoryName" required placeholder="New category"></label><label><span>Type</span><select name="categoryType"><option value="expense">Expense</option><option value="income">Income</option></select></label><button type="submit" class="primary-btn">Add category</button></form></div>
+            <div class="panel"><div class="section-head"><h3>Budget management</h3></div><form id="budgetForm" class="stack-form"><label><span>Category</span><select id="budgetCategory" name="budgetCategory"></select></label><label><span>Amount</span><input name="budgetAmount" type="number" min="0" required></label><button class="primary-btn" type="submit">Save budget</button></form></div>
+            <div class="panel"><div class="section-head"><h3>Categories</h3></div><form id="categoryForm" class="stack-form"><label><span>Name</span><input name="categoryName" required placeholder="e.g. Food"></label><button class="primary-btn" type="submit">Add category</button></form><div id="categoryList" class="category-list"></div></div>
           </div>
         </section>
       </main>
